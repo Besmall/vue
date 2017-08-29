@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>vue---v-bind动态绑定属性</title>
+    <script type="text/javascript" src="js/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <!-- v-bind动态绑定一个或多个属性 -->
+        <span v-bind:title="message" v-bind:style="aa">
+            鼠标悬停几秒钟查看此处动态绑定的提示信息！
+        </span>
+    </div>
+    <script>
+        var app = new Vue({
+            el:"#app",
+            data:{
+                //鼠标放上去显示当前时间
+                message:'页面加载于 ' + new Date().toLocaleString(),
+                aa:"color:red "
+            }
+        });
+    </script>
+</body>
+</html>

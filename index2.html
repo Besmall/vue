@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>vue---条件与循环</title>
+    <script type="text/javascript" src="js/vue.js"></script>
+</head>
+<body>
+    <!-- 条件 -->
+    <div id="app">
+        <h1 v-if="kanjian">我能看到</h1>
+    </div>
+    <!-- 循环 -->
+
+    <div id="app1">
+        <ol>
+            <li v-for="todo in todos">
+                {{todo.text}}
+            </li>
+        </ol>
+    </div>
+    <script>
+        //条件
+        var app = new Vue({
+            el:"#app",
+            data:{
+                kanjian:true
+            }
+        });
+        //循环
+        var app1 = new Vue({
+            el:"#app1",
+            data:{
+                todos:[
+                    {text:"学习Vue"},
+                    {text:"学习node"},
+                    {text:"学习jQuery"}
+                ]
+            }
+        });
+    </script>
+</body>
+</html>

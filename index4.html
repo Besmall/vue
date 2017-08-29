@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>组件化应用构建</title>
+    <script type="text/javascript" src="js/vue.js"></script>
+</head>
+<body>
+    <!-- vue注册组件 -->
+    <div id="app">
+        <tou name="我是头部的名字"></tou>
+        <zhong></zhong>
+        <xia></xia>
+        <ol>
+            <todo-item name="item.text" v-for="(item , index) in todos" key="index"></todo-item>
+        </ol>
+    </div>
+    <script>
+        Vue.component('todo-item',{
+            props:['name'],
+            template:'<li>{{name}}</li>'
+        });
+
+        Vue.component('tou', {
+            //props来接收
+            props: ['name'],
+            template: '<h4>我是头部 {{name}}</h4>'
+        });
+        Vue.component('zhong', {
+            template: '<h4>我只中部</h4>'
+        });
+        Vue.component('xia', {
+            template: '<h4>我是下部</h4>'
+        });
+        var app = new Vue({
+            el:"#app",
+            data:{
+                todos:[
+                    {text:'吃饭'},
+                    {text:'睡觉'},
+                    {text:'打豆豆'}
+                ]
+            }
+        });
+    </script>
+</body>
+</html>
